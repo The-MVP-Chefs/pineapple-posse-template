@@ -31,7 +31,7 @@ async function handleSubmit(ev) {
   }
     
     return  ( <>
-    <div id="h2"><h2>Add an Recipe</h2></div>
+    <div id="h2"><h2>Add a Recipe</h2></div>
      <form>
     <label>
         <p>

@@ -61,8 +61,9 @@ export const App = () => {
 	}, []);
 
 	return (
+		
 		<main>	
-	  <h1>Inventory App</h1>
+	  <h1>Welcome to the Recipe Shop</h1>
 	  {isUpdating ? (
 	  	<UpdateRecipe props={singleViewRecipe} setIsUpdating={setIsUpdating} isUpdating={isUpdating} setSingleViewRecipe={setSingleViewRecipe}/>
 	  ) : isAddingRecipe ? (
