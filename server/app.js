@@ -5,12 +5,12 @@ const app = express();
 const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
-const itemsRouter = require('./routes/items')
-const saucesRouter = require('./routes/sauces')
+const recipesRouter = require('./routes/recipes')
+const usersRouter = require('./routes/users')
 
-//Express route for items
-app.use("/items", itemsRouter);
-app.use("/sauces", saucesRouter);
+//Express route for recipes
+app.use("/recipes", recipesRouter);
+app.use("/users", usersRouter);
 
 //Allow CORS requests
 app.use(cors());

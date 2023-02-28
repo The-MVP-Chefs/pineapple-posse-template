@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { SaucesList} from './SaucesList';
-import { ItemsList} from './ItemsList';
-import { SingleViewItem } from './SingleViewItem';
-import { UpdateItem } from './UpdateItem';
+import { UsersList} from './UsersList';
+import { RecipesList} from './RecipesList';
+import { SingleViewRecipe } from './SingleViewRecipe';
+import { UpdateRecipe } from './UpdateRecipe';
 
-import { AddItem} from './AddItem';
+import { AddRecipe} from './AddRecipe';
 
 
 // import and prepend the api url to any fetch calls
@@ -13,64 +13,64 @@ import apiURL from '../api';
 
 export const App = () => {
 
-	const [sauces, setSauces] = useState([]);
-	const [items, setItems] = useState([]);
-	const [singleViewItem, setSingleViewItem] = useState(null);
-	const [isAddingItem, setIsAddingItem] = useState(false);
+	const [users, setUsers] = useState([]);
+	const [recipes, setRecipes] = useState([]);
+	const [singleViewRecipe, setSingleViewRecipe] = useState(null);
+	const [isAddingRecipe, setIsAddingRecipe] = useState(false);
 	const [isDeleted, setIsDeleted] = useState(false);
 	const [isUpdating, setIsUpdating] = useState(false);
 
-	async function fetchSauces(){
+	async function fetchUsers(){
 		try {
-			const response = await fetch(`${apiURL}/sauces`);
-			const saucesData = await response.json();
+			const response = await fetch(`${apiURL}/users`);
+			const usersData = await response.json();
 			
-			setSauces(saucesData);
+			setUsers(usersData);
 		} catch (err) {
 			console.log("Oh no an error! ", err)
 		}
 	}
 
-	async function fetchItems(){
+	async function fetchRecipes(){
 		try {
-			const response = await fetch(`${apiURL}/items`);
-			const itemsData = await response.json();
+			const response = await fetch(`${apiURL}/recipes`);
+			const recipesData = await response.json();
 			
-			setItems(itemsData);
+			setRecipes(recipesData);
 		} catch (err) {
 			console.log("Oh no an error! ", err)
 		}
 	}
 
-	async function fetchSingleItem(id){
+	async function fetchSingleRecipe(id){
 		try {
-		  const response = await fetch(`${apiURL}/items/${id}`);
+		  const response = await fetch(`${apiURL}/recipes/${id}`);
 		  const item = await response.json();
-		  setSingleViewItem(item);
+		  setSingleViewRecipe(item);
 		} catch (err) {
 		  console.log("Oh no an error! ", err);
 		}
 	  }
 
 	// useEffect(() => {
-	// 	fetchSauces();
+	// 	fetchUsers();
 	// }, []);
 
 	useEffect(() => {
-		fetchItems();
+		fetchRecipes();
 	}, []);
 
 	return (
 		<main>	
 	  <h1>Inventory App</h1>
 	  {isUpdating ? (
-	  	<UpdateItem props={singleViewItem} setIsUpdating={setIsUpdating} isUpdating={isUpdating} setSingleViewItem={setSingleViewItem}/>
-	  ) : isAddingItem ? (
-		<AddItem setIsAddingItem={setIsAddingItem}/>
-	  ) : singleViewItem ? (
-		<SingleViewItem props={singleViewItem} setSingleViewItem={setSingleViewItem} isDeleted={isDeleted} setIsDeleted={setIsDeleted} isUpdating={isUpdating} setIsUpdating={setIsUpdating}/> 
+	  	<UpdateRecipe props={singleViewRecipe} setIsUpdating={setIsUpdating} isUpdating={isUpdating} setSingleViewRecipe={setSingleViewRecipe}/>
+	  ) : isAddingRecipe ? (
+		<AddRecipe setIsAddingRecipe={setIsAddingRecipe}/>
+	  ) : singleViewRecipe ? (
+		<SingleViewRecipe props={singleViewRecipe} setSingleViewRecipe={setSingleViewRecipe} isDeleted={isDeleted} setIsDeleted={setIsDeleted} isUpdating={isUpdating} setIsUpdating={setIsUpdating}/> 
 	  ) : (
-			<div id="items"><ItemsList items={items} handleClick={fetchSingleItem} setIsAddingItem={setIsAddingItem}/></div>
+			<div id="recipes"><RecipesList recipes={recipes} handleClick={fetchSingleRecipe} setIsAddingRecipe={setIsAddingRecipe}/></div>
 	  )}
 		</main>
 	)
