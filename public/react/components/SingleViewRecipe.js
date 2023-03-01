@@ -18,11 +18,11 @@ export const SingleViewRecipe = ({props,setSingleViewRecipe, isDeleted, setIsDel
     return (
     <>
     <div class="fullRecipe">
-      <div class="info"> <h3>{props.title}</h3>
-      <h2>${props.price}</h2> </div>
-      <div id="image"><img src={props.image} alt={props.name} /></div>
-      <div id="desc"><p>Description: {props.description}</p></div>
-      <div id="cat"><p>Category: {props.category}</p></div>
+      <div class="info"> <h3>{props.recipeName}</h3>
+      <h2>${props.userId}</h2> </div>
+      <div id="recipeImage"><img src={props.recipeImage} alt={props.name} /></div>
+      <div id="desc"><p>Description: {props.ingredients}</p></div>
+      <div id="cat"><p>Category: {props.isVegan}</p></div>
     </div>
       <button onClick={() => setSingleViewRecipe(null)} id="main">Back to Main Page</button>
       <button onClick={handleDelete} id="delete">Delete Recipe</button>

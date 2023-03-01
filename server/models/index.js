@@ -1,17 +1,69 @@
 const {Sequelize} = require('sequelize')
 const {sequelize} = require('../db')
 
-const User = sequelize.define("users", {
-  name: Sequelize.STRING,
-  image: Sequelize.STRING,
+const User = sequelize.define("user", {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  user_name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  isChef: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+  },
+  dietary_restrictions: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+
+  userImage: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  }
+ 
+ 
 });
 
-const Recipe = sequelize.define("recipes", {
-  title: Sequelize.STRING,
-  price: Sequelize.NUMBER,
-  description: Sequelize.STRING,
-  category: Sequelize.STRING,
-  image: Sequelize.STRING
+
+const Recipe = sequelize.define("recipe", {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+    timeStamps: true,
+  },
+
+  recipeName: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  ingredients: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  isVegan: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+  },
+  userId: {
+    type: Sequelize.INTEGER,
+    references: {
+      model: User,
+      key: "id",
+    },
+  },
+  recipeImage: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  }
 });
 
 module.exports = {

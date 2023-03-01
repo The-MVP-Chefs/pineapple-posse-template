@@ -3,11 +3,11 @@ import apiURL from '../api';
 
 export const UpdateRecipe = ({props, isUpdating, setIsUpdating, setSingleViewRecipe, isAddingRecipe, setIsAddingRecipe}) => {
 //make the form
-const [title, setTitle] = useState('');
-const [price, setPrice] = useState('');
-const [description, setDescription] = useState('');
-const [category, setCategory] = useState('');
-const [image, setImage] = useState('');   
+const [recipeName, setRecipe] = useState('');
+const [userId, setUserId] = useState('');
+const [ingredients, setIngredients] = useState('');
+const [isVegan, setIsVegan] = useState('');
+const [recipeImage, setRecipeImage] = useState('');   
 
 async function handleUpdate(ev) {
     const response = await fetch(`${apiURL}/recipes/${props.id}`, {
@@ -16,7 +16,7 @@ async function handleUpdate(ev) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(
-        {title, price, description, category, image}
+        {recipeName, userId, ingredients, isVegan, recipeImage}
       )
     });
     //const data = await response.json();
@@ -37,11 +37,11 @@ async function handleUpdate(ev) {
     let result = await fetch(`${apiURL}/recipes/${props.id}`);
     result = await result.json();
     console.warn(result);
-    setTitle(result.title);
-    setPrice(result.price);
-    setDescription(result.description);
-    setCategory(result.category);
-    setImage(result.image);
+    setRecipe(result.recipeName);
+    setUserId(result.userId);
+    setIngredients(result.ingredients);
+    setIsVegan(result.isVegan);
+    setRecipeImage(result.recipeImage);
   }
 
   // async function handleClick() { 
@@ -54,19 +54,19 @@ async function handleUpdate(ev) {
      <form>
     <label>
         <p>
-        <input type="text"  size='50' name="title" placeholder="Title" value={ title } onChange={ev => setTitle(ev.target.value)} /> 
+        <input type="text"  size='50' name="recipeName" placeholder="Title" value={ recipeName } onChange={ev => setRecipe(ev.target.value)} /> 
         </p>
         <p>
-        <input type="text"  size='50' name="price" placeholder="Price" value={ price } onChange={ev => setPrice(ev.target.value)}/> 
+        <input type="text"  size='50' name="userId" placeholder="Price" value={ userId } onChange={ev => setUserId(ev.target.value)}/> 
         </p>
         <p>
-        <input type="text" size='50' name="description" placeholder="Description" value={ description } onChange={ev => setDescription(ev.target.value)}/> 
+        <input type="text" size='50' name="ingredients" placeholder="Description" value={ ingredients } onChange={ev => setIngredients(ev.target.value)}/> 
         </p>
         <p>
-        <input type="text"  size='50' name="category" placeholder="Category" value={ category } onChange={ev => setCategory(ev.target.value)}/> 
+        <input type="text"  size='50' name="isVegan" placeholder="Category" value={ isVegan } onChange={ev => setIsVegan(ev.target.value)}/> 
         </p>
         <p>
-        <input type="text" size='50' name="image"  placeholder="Image" value={ image } onChange={ev => setImage(ev.target.value)}/>
+        <input type="text" size='50' name="recipeImage"  placeholder="Image" value={ recipeImage } onChange={ev => setRecipeImage(ev.target.value)}/>
         </p> 
     </label>
     </form>
