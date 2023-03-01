@@ -6,7 +6,7 @@ module.exports = {
       password:"abc123",
       isChef: true,
       dietary_restrictions:"none",
-      userImage:"https://64.media.tumblr.com/12cd128183713bf928bda87a24f22487/tumblr_ne6jee85PM1tha1vgo1_250.gif"
+      userImage:""
     },
     {
       id: 2,
@@ -14,7 +14,7 @@ module.exports = {
       password:"abc123",
       isChef: true,
       dietary_restrictions:"none",
-      userImage:"https://cdn.shrm.org/image/upload/c_crop%2ch_3022%2cw_3024%2cx_0%2cy_0/c_fit%2cf_auto%2cq_auto%2cw_767/v1/Organizational%20and%20Employee%20Development/Yohanna_head_shot_sjnipw"
+      userImage:""
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ module.exports = {
       password:"abc123",
       isChef: true,
       dietary_restrictions:"none",
-      userImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ8QWi6tRy5xt2jmvVfipy55vuvyNTRwN5vFED6Lpzjg&s"
+      userImage:""
     },
     {
       id: 4,
@@ -30,7 +30,7 @@ module.exports = {
       password:"abc123",
       isChef: true,
       dietary_restrictions:"none",
-      userImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ8QWi6tRy5xt2jmvVfipy55vuvyNTRwN5vFED6Lpzjg&s"
+      userImage:""
     },
     {
       id: 5,
@@ -38,7 +38,7 @@ module.exports = {
       password:"abc123",
       isChef: true,
       dietary_restrictions:"none",
-      userImage:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK7d0LzTXdNyLyGfvQPR15Qv-wviKcBT3_9Q&usqp=CAU"
+      userImage:""
       
     },
   ],
@@ -59,7 +59,7 @@ module.exports = {
       ingredients: "paprika,red pepper,parmesan ",
       isVegan: "false",
       userId: 2,
-      recipeImage:""
+      recipeImage:"https://64.media.tumblr.com/c29f9efb705897b5328254e681fb65be/0b5b32abee988f88-38/s1280x1920/d7c625f8a677936f114b9166ca3d360dbc5966d9.jpg"
     },
     {
       id: 3,
@@ -67,7 +67,7 @@ module.exports = {
       ingredients: "califlower,vegatable broth,salt,celery",
       isVegan: "true",
       userId: 3,
-      recipeImage:""
+      recipeImage:"https://64.media.tumblr.com/c289ff809c67f68c9f32a508cd9a8de7/549695e7170d4642-94/s500x750/2a7dff92b62abe388b1e6e44cef4a1f7a88ace1e.jpg"
     },
  ]
 };
