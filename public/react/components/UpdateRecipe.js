@@ -30,10 +30,10 @@ async function handleUpdate(ev) {
   }
 
   useEffect(() => {
-    getProductDetails();
+    getRecipeDetails();
   }, []);
 
-  const getProductDetails = async () => {
+  const getRecipeDetails = async () => {
     let result = await fetch(`${apiURL}/recipes/${props.id}`);
     result = await result.json();
     console.warn(result);
@@ -44,10 +44,7 @@ async function handleUpdate(ev) {
     setRecipeImage(result.recipeImage);
   }
 
-  // async function handleClick() { 
-  //   setIsUpdating(true);
-  //   setSingleViewRecipe(false);
-  // }
+ 
     
     return  ( <>
     <div id="h2"><h2>Update an Recipe</h2></div>

@@ -45,8 +45,8 @@ export const App = () => {
 	async function fetchSingleRecipe(id){
 		try {
 		  const response = await fetch(`${apiURL}/recipes/${id}`);
-		  const item = await response.json();
-		  setSingleViewRecipe(item);
+		  const recipe = await response.json();
+		  setSingleViewRecipe(recipe);
 		} catch (err) {
 		  console.log("Oh no an error! ", err);
 		}

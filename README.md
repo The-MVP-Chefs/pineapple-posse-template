@@ -2,7 +2,7 @@
 A full-stack application to track your inventory. 
 As a user of the inventory app, you can:
     - View all the recipes in your inventory
-    - Click on recipes to view more details on a specific item
+    - Click on recipes to view more details on a specific recipe
     - Add recipes to your inventory 
     - Delete recipes from your inventory
     - Edit/update recipes in your inventory

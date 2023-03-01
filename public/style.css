@@ -12,7 +12,7 @@ h1{
   margin-bottom: 1rem;
 }
 
-.item{
+.recipe{
   display: flex;
   flex-direction:column;
   align-recipes:center;
@@ -26,14 +26,14 @@ h1{
   margin: auto;
 }
 
-.item img {
+.recipe img {
   height: 225px;
   width: 225px;
   margin-top: 1rem;
   margin-bottom: 4rem;
 }
 
-.item img:hover {
+.recipe img:hover {
   box-shadow: 1px 1px 10px;
 }
 

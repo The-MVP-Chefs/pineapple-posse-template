@@ -19,7 +19,7 @@ export const SingleViewRecipe = ({props,setSingleViewRecipe, isDeleted, setIsDel
     <>
     <div class="fullRecipe">
       <div class="info"> <h3>{props.recipeName}</h3>
-      <h2>${props.userId}</h2> </div>
+       </div>
       <div id="recipeImage"><img src={props.recipeImage} alt={props.name} /></div>
       <div id="desc"><p>Ingredients: {props.ingredients}</p></div>
       <div id="cat"><p>Vegan: {props.isVegan}</p></div>
