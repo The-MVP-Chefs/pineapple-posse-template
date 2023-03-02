@@ -50,7 +50,7 @@ const Recipe = sequelize.define("recipe", {
     allowNull: false,
   },
   isVegan: {
-    type: Sequelize.BOOLEAN,
+    type: Sequelize.String,
     allowNull: false,
   },
   userId: {

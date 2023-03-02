@@ -1,5 +1,10 @@
 import React, {useState} from 'react';
 import apiURL from '../api';
+//bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import ListGroup from "react-bootstrap/ListGroup";
 
 export const AddRecipe = ({props, setIsAddingRecipe}) => {
 //make the form
@@ -32,30 +37,37 @@ async function handleSubmit(ev) {
   }
     
     return  ( <>
-    <div id="h2"><h2>Add a Recipe</h2></div>
-     <form>
-    <label>
-        <p>
-        <input type="text" size='50' name="recipeName" placeholder="Recipe Name" value={ recipeName } onChange={ev => setRecipe(ev.target.value)} /> 
-        </p>
-        <p>
-        <input type="text" size='50' name="userId" placeholder="User Id" value={ userId } onChange={ev => setUserId(ev.target.value)}/> 
-        </p>
-        <p>
-        <input type="text"  size='50' name="ingredients" placeholder="Ingredients" value={ ingredients } onChange={ev => setIngredients(ev.target.value)}/> 
-        </p>
-        <p>
-        <input type="text" size='50' name="isVegan" placeholder="Vegan?" value={ isVegan } onChange={ev => setIsVegan(ev.target.value)}/> 
-        </p>
-        <p>
-        <input type="text" size='50' name="recipeImage"  placeholder="Image" value={ recipeImage } onChange={ev => setRecipeImage(ev.target.value)}/>
-        </p> 
-    </label>
-    </form>
-    <div id="buttons">
-    <button type="submit" onClick={handleSubmit} id="add">Add My Recipe!</button>
-    <button onClick={() => setIsAddingRecipe(false)} id="back">Back to Home</button>
-      </div>
+    <Form>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Recipe Name</Form.Label>
+        <Form.Control onChange={(e) => setRecipe(e.target.value)} value={recipeName} type="text" placeholder="Item Recipe Name" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Ingredients</Form.Label>
+        <Form.Control onChange={(e) => setIngredients(e.target.value)} value={ingredients} type="text" placeholder="Ingredients" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Vegan?</Form.Label>
+        <Form.Control  onChange={(e) => setIsVegan(e.target.value)} value={isVegan} type="text" placeholder="Vegan?" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>userId</Form.Label>
+        <Form.Control  onChange={(e) => setUserId(e.target.value)} value={userId} type="number" placeholder="userId" />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Image</Form.Label>
+        <Form.Control  onChange={(e) => setRecipeImage(e.target.value)} value={image} type="text" placeholder="Image" />
+      </Form.Group>
+     
+      <Button variant="primary" type="submit" onClick={handleSubmit}>
+        Add My Recipe
+      </Button>
+    </Form>
     </>
     );
 }
+

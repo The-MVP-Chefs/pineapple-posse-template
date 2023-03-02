@@ -51,16 +51,16 @@ async function handleUpdate(ev) {
      <form>
     <label>
         <p>
-        <input type="text"  size='50' name="recipeName" placeholder="Title" value={ recipeName } onChange={ev => setRecipe(ev.target.value)} /> 
+        <input type="text"  size='50' name="recipeName" placeholder="Recipe Name" value={ recipeName } onChange={ev => setRecipe(ev.target.value)} /> 
         </p>
         <p>
-        <input type="text"  size='50' name="userId" placeholder="Price" value={ userId } onChange={ev => setUserId(ev.target.value)}/> 
+        <input type="text"  size='50' name="userId" placeholder="Vegan?" value={ userId } onChange={ev => setUserId(ev.target.value)}/> 
         </p>
         <p>
-        <input type="text" size='50' name="ingredients" placeholder="Description" value={ ingredients } onChange={ev => setIngredients(ev.target.value)}/> 
+        <input type="text" size='50' name="ingredients" placeholder="Ingredients" value={ ingredients } onChange={ev => setIngredients(ev.target.value)}/> 
         </p>
         <p>
-        <input type="text"  size='50' name="isVegan" placeholder="Category" value={ isVegan } onChange={ev => setIsVegan(ev.target.value)}/> 
+        <input type="text"  size='50' name="isVegan" placeholder="userId" value={ isVegan } onChange={ev => setIsVegan(ev.target.value)}/> 
         </p>
         <p>
         <input type="text" size='50' name="recipeImage"  placeholder="Image" value={ recipeImage } onChange={ev => setRecipeImage(ev.target.value)}/>
