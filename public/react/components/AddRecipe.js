@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import apiURL from '../api';
 //bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import ListGroup from "react-bootstrap/ListGroup";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export const AddRecipe = ({props, setIsAddingRecipe}) => {
 //make the form
@@ -60,7 +59,7 @@ async function handleSubmit(ev) {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Image</Form.Label>
-        <Form.Control  onChange={(e) => setRecipeImage(e.target.value)} value={image} type="text" placeholder="Image" />
+        <Form.Control  onChange={(e) => setRecipeImage(e.target.value)} value={recipeImage} type="text" placeholder="Image" />
       </Form.Group>
      
       <Button variant="primary" type="submit" onClick={handleSubmit}>

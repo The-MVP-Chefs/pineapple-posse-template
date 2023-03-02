@@ -3,8 +3,10 @@ import { UsersList} from './UsersList';
 import { RecipesList} from './RecipesList';
 import { SingleViewRecipe } from './SingleViewRecipe';
 import { UpdateRecipe } from './UpdateRecipe';
-
 import { AddRecipe} from './AddRecipe';
+//bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+//import Button from "react-bootstrap/Button";
 
 
 // import and prepend the api url to any fetch calls
