@@ -22,16 +22,7 @@ export const SingleViewRecipe = ({props,setSingleViewRecipe, isDeleted, setIsDel
   }
     return (
     <>
-    {/* <div class="fullRecipe">
-      <div class="info"> <h3>{props.recipeName}</h3>
-       </div>
-      <div id="recipeImage"><img src={props.recipeImage} alt={props.name} /></div>
-      <div id="desc"><p>Ingredients: {props.ingredients}</p></div>
-      <div id="cat"><p>Vegan: {props.isVegan}</p></div>
-    </div>
-      <button onClick={() => setSingleViewRecipe(null)} id="main">Back to Main Page</button>
-      <button onClick={handleDelete} id="delete">Delete Recipe</button>
-      <button onClick={() => setIsUpdating(true)} id="update">Update Recipe</button> */}
+   
         <Card style={{ width: "18rem" }}>
            <Card.Img variant="top" src={props.recipeImage} />
            <Card.Body>

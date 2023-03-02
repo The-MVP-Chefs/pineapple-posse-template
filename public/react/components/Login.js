@@ -6,14 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-export const AddRecipe = ({props, setIsAddingRecipe}) => {
+export const Login = ({props, setIsLoggedIn}) => {
 //make the form
-const [recipeName, setRecipe] = useState('');
-const [userId, setUserId] = useState('');
-//const [id, setId] = useState('');
-const [ingredients, setIngredients] = useState('');
-const [isVegan, setIsVegan] = useState('');
-const [recipeImage, setRecipeImage] = useState('');   
+const [user_name, setUserName] = useState('');
+const [password, setPassword] = useState('');
+ 
 
 async function handleSubmit(ev) {
     //event.preventDefault();
@@ -38,33 +35,19 @@ async function handleSubmit(ev) {
     
     return  ( <>
     <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Recipe Name</Form.Label>
-        <Form.Control onChange={(e) => setRecipe(e.target.value)} value={recipeName} type="email" placeholder="Recipe Recipe Name" />
+        <Form.Control onChange={(e) => setUser(e.target.value)} value={user_name} type="text" placeholder="username" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Ingredients</Form.Label>
-        <Form.Control onChange={(e) => setIngredients(e.target.value)} value={ingredients} type="text" placeholder="Ingredients" />
+        <Form.Label>Password</Form.Label>
+        <Form.Control onChange={(e) => setUser(e.target.value)} value={password} type="text" placeholder="Enter Password" />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Vegan?</Form.Label>
-        <Form.Control  onChange={(e) => setIsVegan(e.target.value)} value={isVegan} type="text" placeholder="Vegan?" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>userId</Form.Label>
-        <Form.Control  onChange={(e) => setUserId(e.target.value)} value={userId} type="number" placeholder="userId" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Image</Form.Label>
-        <Form.Control  onChange={(e) => setRecipeImage(e.target.value)} value={recipeImage} type="text" placeholder="Image" />
-      </Form.Group>
-     
+      
       <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Add My Recipe
+        Login
       </Button>
     </Form>
     </>

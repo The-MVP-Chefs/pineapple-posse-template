@@ -39,7 +39,7 @@ async function handleSubmit(ev) {
     <Form>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Recipe Name</Form.Label>
-        <Form.Control onChange={(e) => setRecipe(e.target.value)} value={recipeName} type="text" placeholder="Recipe Recipe Name" />
+        <Form.Control onChange={(e) => setRecipe(e.target.value)} value={recipeName} type="text" placeholder="Recipe Name" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
