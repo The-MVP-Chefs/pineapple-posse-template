@@ -55,17 +55,18 @@ export const App = () => {
     }
   }
 
-  useEffect(() => {
-    fetchRecipes();
-  }, []);
+//   useEffect(() => {
+//     fetchRecipes();
+//   }, []);
 
   return (
     <main>
       <h1>Welcome to the Recipe Shop</h1>
       {isHome ? (
-        <Home />
+// left is prop right is function}
+        <Home setIsHome={setIsHome} setRecipes={setRecipes} setIsLoggedIn={setIsLoggedIn}  />
       ) : isLoggedIn ? (
-        <Login />
+        <Login setIsLoggedIn={setIsLoggedIn} />
       ) : isRegistered ? (
         <Register />
       ) : isUpdating ? (

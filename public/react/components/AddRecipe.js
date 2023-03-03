@@ -9,7 +9,6 @@ export const AddRecipe = ({props, setIsAddingRecipe}) => {
 //make the form
 const [recipeName, setRecipe] = useState('');
 const [userId, setUserId] = useState('');
-//const [id, setId] = useState('');
 const [ingredients, setIngredients] = useState('');
 const [isVegan, setIsVegan] = useState('');
 const [recipeImage, setRecipeImage] = useState('');   
