@@ -64,11 +64,11 @@ export const App = () => {
       <h1>Welcome to the Recipe Shop</h1>
       {isHome ? (
 // left is prop right is function}
-        <Home setIsHome={setIsHome} setRecipes={setRecipes} setIsLoggedIn={setIsLoggedIn}  />
+        <Home setIsHome={setIsHome} setRecipes={setRecipes} setIsLoggedIn={setIsLoggedIn}  setIsRegistered={setIsRegistered} />
       ) : isLoggedIn ? (
         <Login setIsLoggedIn={setIsLoggedIn} />
       ) : isRegistered ? (
-        <Register />
+        <Register setIsRegistered={setIsRegistered} />
       ) : isUpdating ? (
         <UpdateRecipe
           props={singleViewRecipe}

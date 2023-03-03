@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 
 
-export const Home = ({ setIsHome, setRecipes,setIsLoggedIn }) => {
+export const Home = ({ setIsHome, setRecipes,setIsLoggedIn, setIsRegistered }) => {
  
   async function handleViewAll(ev) {
     try {
@@ -19,6 +19,8 @@ export const Home = ({ setIsHome, setRecipes,setIsLoggedIn }) => {
       console.log("Oh no an error! ", err);
     }
     setIsHome(false);
+   
+    
    // refreshPage();
   }
   function refreshPage() {
@@ -39,11 +41,10 @@ export const Home = ({ setIsHome, setRecipes,setIsLoggedIn }) => {
         View Public Recipes
       </Button>
       <br></br>
-
       <Button
         variant="primary"
         type="submit"
-        onClick={() => setIsLoggedIn(true) && setIsHome(false)}
+        onClick={(ev) => setIsLoggedIn(true) && setIsHome(false)}
       >
         Login
       </Button>

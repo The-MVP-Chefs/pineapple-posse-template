@@ -36185,7 +36185,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var Home = function Home(_ref) {
   var setIsHome = _ref.setIsHome,
       setRecipes = _ref.setRecipes,
-      setIsLoggedIn = _ref.setIsLoggedIn;
+      setIsLoggedIn = _ref.setIsLoggedIn,
+      setIsRegistered = _ref.setIsRegistered;
 
   function handleViewAll(_x) {
     return _handleViewAll.apply(this, arguments);
@@ -36246,7 +36247,7 @@ var Home = function Home(_ref) {
   }, "View Public Recipes"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "primary",
     type: "submit",
-    onClick: function onClick() {
+    onClick: function onClick(ev) {
       return setIsLoggedIn(true) && setIsHome(false);
     }
   }, "Login"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
@@ -36299,13 +36300,11 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-console.log("testing");
-
 var Login = function Login(_ref) {
   var props = _ref.props,
       setIsLoggedIn = _ref.setIsLoggedIn;
+  console.log('login'); //make the form
 
-  //make the form
   var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       user_name = _useState2[0],
@@ -36327,7 +36326,9 @@ var Login = function Login(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              console.log("testingLogin"); //event.preventDefault();
+
+              _context.next = 3;
               return fetch("".concat(_api.default, "/users/"), {
                 method: "POST",
                 headers: {
@@ -36339,15 +36340,14 @@ var Login = function Login(_ref) {
                 })
               });
 
-            case 2:
+            case 3:
               response = _context.sent;
-              _context.next = 5;
+              _context.next = 6;
               return response.json();
 
-            case 5:
+            case 6:
               data = _context.sent;
-              setIsLoggedIn(null);
-              refreshPage();
+              setIsLoggedIn(null); //refreshPage();
 
             case 8:
             case "end":
@@ -36361,32 +36361,35 @@ var Login = function Login(_ref) {
 
   function refreshPage() {
     window.location.reload(false);
-    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
-      className: "mb-3",
-      controlId: "formBasicPassword"
-    }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Recipe Name"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
-      onChange: function onChange(e) {
-        return setUserName(e.target.value);
-      },
-      value: user_name,
-      type: "text",
-      placeholder: "username"
-    })), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
-      className: "mb-3",
-      controlId: "formBasicPassword"
-    }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Password"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
-      onChange: function onChange(e) {
-        return setPassword(e.target.value);
-      },
-      value: password,
-      type: "text",
-      placeholder: "Enter Password"
-    }), " "), /*#__PURE__*/_react.default.createElement(_Button.default, {
-      variant: "primary",
-      type: "submit",
-      onClick: handleLogin
-    }, "Login")));
   }
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
+    className: "mb-3",
+    controlId: "formBasicPassword"
+  }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "User Name"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+    onChange: function onChange(e) {
+      return setUserName(e.target.value);
+    },
+    value: user_name,
+    type: "text",
+    placeholder: "username"
+  })), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
+    className: "mb-3",
+    controlId: "formBasicPassword"
+  }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Password"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+    onChange: function onChange(e) {
+      return setPassword(e.target.value);
+    },
+    value: password,
+    type: "text",
+    placeholder: "Enter Password"
+  }), " "), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    variant: "primary",
+    type: "submit",
+    onClick: function onClick(ev) {
+      return handleLogin(ev);
+    }
+  }, "Login")));
 };
 
 exports.Login = Login;
@@ -36755,10 +36758,13 @@ var App = function App() {
   _react.default.createElement(_Home.Home, {
     setIsHome: setIsHome,
     setRecipes: setRecipes,
-    setIsLoggedIn: setIsLoggedIn
+    setIsLoggedIn: setIsLoggedIn,
+    setIsRegistered: setIsRegistered
   }) : isLoggedIn ? /*#__PURE__*/_react.default.createElement(_Login.Login, {
     setIsLoggedIn: setIsLoggedIn
-  }) : isRegistered ? /*#__PURE__*/_react.default.createElement(_Register.Register, null) : isUpdating ? /*#__PURE__*/_react.default.createElement(_UpdateRecipe.UpdateRecipe, {
+  }) : isRegistered ? /*#__PURE__*/_react.default.createElement(_Register.Register, {
+    setIsRegistered: setIsRegistered
+  }) : isUpdating ? /*#__PURE__*/_react.default.createElement(_UpdateRecipe.UpdateRecipe, {
     props: singleViewRecipe,
     setIsUpdating: setIsUpdating,
     isUpdating: isUpdating,
@@ -36834,7 +36840,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61969" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53396" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
