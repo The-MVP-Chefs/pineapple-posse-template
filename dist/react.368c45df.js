@@ -32350,31 +32350,41 @@ var _react = _interopRequireDefault(require("react"));
 
 var _Recipe = require("./Recipe");
 
+require("bootstrap/dist/css/bootstrap.min.css");
+
+var _Button = _interopRequireDefault(require("react-bootstrap/Button"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//bootstrap
 var RecipesList = function RecipesList(_ref) {
   var recipes = _ref.recipes,
       handleClick = _ref.handleClick,
-      setIsAddingRecipe = _ref.setIsAddingRecipe;
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
-    id: "addButton"
-  }, /*#__PURE__*/_react.default.createElement("button", {
+      setIsAddingRecipe = _ref.setIsAddingRecipe,
+      setIsHome = _ref.setIsHome;
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Button.default, {
+    variant: "primary",
+    type: "submit",
     onClick: function onClick() {
       return setIsAddingRecipe(true);
     }
-  }, "Add a New Recipe")), /*#__PURE__*/_react.default.createElement("div", {
-    class: "recipe"
-  }, recipes.map(function (recipe, idx) {
+  }, "Add a New Recipe"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    variant: "primary",
+    type: "submit",
+    onClick: function onClick() {
+      return setIsHome(true);
+    }
+  }, "Return Home"), recipes.map(function (recipe, idx) {
     return /*#__PURE__*/_react.default.createElement(_Recipe.Recipe, {
       recipe: recipe,
       key: idx,
       handleClick: handleClick
     });
-  })));
+  }));
 };
 
 exports.RecipesList = RecipesList;
-},{"react":"../node_modules/react/index.js","./Recipe":"react/components/Recipe.js"}],"react/api.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Recipe":"react/components/Recipe.js","bootstrap/dist/css/bootstrap.min.css":"../node_modules/bootstrap/dist/css/bootstrap.min.css","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js"}],"react/api.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33857,15 +33867,15 @@ var SingleViewRecipe = function SingleViewRecipe(_ref) {
     className: "recipeName"
   })), /*#__PURE__*/_react.default.createElement(_Card.default.Text, null, props.ingredients)), /*#__PURE__*/_react.default.createElement(_ListGroup.default, {
     className: "list-group-flush"
-  }, /*#__PURE__*/_react.default.createElement(_ListGroup.default.Item, null, props.isVegan), /*#__PURE__*/_react.default.createElement(_ListGroup.default.Item, null, "User Id", props.userId)), /*#__PURE__*/_react.default.createElement(_Card.default.Body, null, /*#__PURE__*/_react.default.createElement(_Button.default, {
+  }, /*#__PURE__*/_react.default.createElement(_ListGroup.default.Item, null, props.isVegan)), /*#__PURE__*/_react.default.createElement(_Card.default.Body, null, /*#__PURE__*/_react.default.createElement(_Button.default, {
     onClick: handleDelete,
     variant: "danger"
-  }, "Delete"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
+  }, "Delete"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "success",
     onClick: function onClick() {
       return setIsUpdating(true);
     }
-  }, "Update"))), /*#__PURE__*/_react.default.createElement(_Button.default, {
+  }, "Update"))), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "primary",
     onClick: function onClick() {
       return setSingleViewRecipe(null);
@@ -36220,7 +36230,7 @@ var Home = function Home(_ref) {
               console.log("Oh no an error! ", _context.t0);
 
             case 13:
-              setIsHome(false); // refreshPage();
+              setIsHome(false);
 
             case 14:
             case "end":
@@ -36236,7 +36246,7 @@ var Home = function Home(_ref) {
     window.location.reload(false);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("img", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Welcome to the Recipe Shop"), /*#__PURE__*/_react.default.createElement("img", {
     src: "https://64.media.tumblr.com/247e7fcb54fb8ffde594fc428b047a97/3cfa81015891537b-61/s400x600/a7914e7fd605022b6deb3c60d8a4c5c400dbeeae.jpg"
   }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "success",
@@ -36244,13 +36254,13 @@ var Home = function Home(_ref) {
     onClick: function onClick(ev) {
       return handleViewAll(ev);
     }
-  }, "View Public Recipes"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
+  }, "View Public Recipes"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "primary",
     type: "submit",
-    onClick: function onClick(ev) {
+    onClick: function onClick() {
       return setIsLoggedIn(true) && setIsHome(false);
     }
-  }, "Login"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
+  }, "Login"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "warning",
     type: "submit",
     onClick: function onClick() {
@@ -36301,9 +36311,9 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Login = function Login(_ref) {
-  var props = _ref.props,
-      setIsLoggedIn = _ref.setIsLoggedIn;
-  console.log('login'); //make the form
+  var setIsLoggedIn = _ref.setIsLoggedIn,
+      setIsHome = _ref.setIsHome;
+  console.log("login"); //make the form
 
   var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -36326,7 +36336,7 @@ var Login = function Login(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              console.log("testingLogin"); //event.preventDefault();
+              console.log("testingLogin"); // event.preventDefault();
 
               _context.next = 3;
               return fetch("".concat(_api.default, "/users/"), {
@@ -36347,9 +36357,10 @@ var Login = function Login(_ref) {
 
             case 6:
               data = _context.sent;
-              setIsLoggedIn(null); //refreshPage();
+              setIsLoggedIn(null);
+              refreshPage();
 
-            case 8:
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -36363,20 +36374,17 @@ var Login = function Login(_ref) {
     window.location.reload(false);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Login"), /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
     className: "mb-3",
     controlId: "formBasicPassword"
-  }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "User Name"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+  }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
       return setUserName(e.target.value);
     },
     value: user_name,
     type: "text",
-    placeholder: "username"
-  })), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
-    className: "mb-3",
-    controlId: "formBasicPassword"
-  }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Password"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+    placeholder: "Username"
+  }), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
       return setPassword(e.target.value);
     },
@@ -36384,6 +36392,12 @@ var Login = function Login(_ref) {
     type: "text",
     placeholder: "Enter Password"
   }), " "), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    variant: "primary",
+    type: "submit",
+    onClick: function onClick() {
+      return setIsHome(true);
+    }
+  }, "Cancel"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "primary",
     type: "submit",
     onClick: function onClick(ev) {
@@ -36434,8 +36448,8 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Register = function Register(_ref) {
-  var props = _ref.props,
-      setIsRegistered = _ref.setIsRegistered;
+  var setIsRegistered = _ref.setIsRegistered,
+      setIsHome = _ref.setIsHome;
 
   //make the form
   var _useState = (0, _react.useState)(''),
@@ -36447,6 +36461,21 @@ var Register = function Register(_ref) {
       _useState4 = _slicedToArray(_useState3, 2),
       password = _useState4[0],
       setPassword = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      isChef = _useState6[0],
+      setIsChef = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(''),
+      _useState8 = _slicedToArray(_useState7, 2),
+      dietary_restrictions = _useState8[0],
+      setDietaryRestrictions = _useState8[1];
+
+  var _useState9 = (0, _react.useState)(''),
+      _useState10 = _slicedToArray(_useState9, 2),
+      userImage = _useState10[0],
+      setUserImage = _useState10[1];
 
   function handleSubmit(_x) {
     return _handleSubmit.apply(this, arguments);
@@ -36498,31 +36527,49 @@ var Register = function Register(_ref) {
     window.location.reload(false);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Registration"), /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
     className: "mb-3",
     controlId: "formBasicPassword"
   }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Recipe Name"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
-      return setUser(e.target.value);
+      return setUserName(e.target.value);
     },
     value: user_name,
     type: "text",
-    placeholder: "username"
-  })), /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
-    className: "mb-3",
-    controlId: "formBasicPassword"
-  }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Password"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+    placeholder: "User Name"
+  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Password"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
-      return setUser(e.target.value);
+      return setPassword(e.target.value);
     },
     value: password,
     type: "text",
     placeholder: "Enter Password"
+  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Chef Status"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+    onChange: function onChange(e) {
+      return setIsChef(e.target.value);
+    },
+    value: isChef,
+    type: "text",
+    placeholder: "Are you a professional chef?"
+  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Dietary Restrictions"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+    onChange: function onChange(e) {
+      return setDietaryRestrictions(e.target.value);
+    },
+    value: dietary_restrictions,
+    type: "text",
+    placeholder: "Any Dietary Restrictions?"
+  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Profile Picture"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+    onChange: function onChange(e) {
+      return setUserImage(e.target.value);
+    },
+    value: userImage,
+    type: "text",
+    placeholder: ""
   })), /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "primary",
     type: "submit",
     onClick: handleSubmit
-  }, "Login")));
+  }, "Register")));
 };
 
 exports.Register = Register;
@@ -36752,7 +36799,7 @@ var App = function App() {
     return _fetchSingleRecipe.apply(this, arguments);
   }
 
-  return /*#__PURE__*/_react.default.createElement("main", null, /*#__PURE__*/_react.default.createElement("h1", null, "Welcome to the Recipe Shop"), isHome ?
+  return /*#__PURE__*/_react.default.createElement("main", null, isHome ?
   /*#__PURE__*/
   // left is prop right is function}
   _react.default.createElement(_Home.Home, {
@@ -36761,9 +36808,11 @@ var App = function App() {
     setIsLoggedIn: setIsLoggedIn,
     setIsRegistered: setIsRegistered
   }) : isLoggedIn ? /*#__PURE__*/_react.default.createElement(_Login.Login, {
-    setIsLoggedIn: setIsLoggedIn
+    setIsLoggedIn: setIsLoggedIn,
+    setIsHome: setIsHome
   }) : isRegistered ? /*#__PURE__*/_react.default.createElement(_Register.Register, {
-    setIsRegistered: setIsRegistered
+    setIsRegistered: setIsRegistered,
+    setIsHome: setIsHome
   }) : isUpdating ? /*#__PURE__*/_react.default.createElement(_UpdateRecipe.UpdateRecipe, {
     props: singleViewRecipe,
     setIsUpdating: setIsUpdating,
@@ -36783,7 +36832,8 @@ var App = function App() {
   }, /*#__PURE__*/_react.default.createElement(_RecipesList.RecipesList, {
     recipes: recipes,
     handleClick: fetchSingleRecipe,
-    setIsAddingRecipe: setIsAddingRecipe
+    setIsAddingRecipe: setIsAddingRecipe,
+    setIsHome: setIsHome
   })));
 };
 
@@ -36840,7 +36890,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53396" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54457" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

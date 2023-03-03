@@ -61,14 +61,14 @@ export const App = () => {
 
   return (
     <main>
-      <h1>Welcome to the Recipe Shop</h1>
+      
       {isHome ? (
 // left is prop right is function}
         <Home setIsHome={setIsHome} setRecipes={setRecipes} setIsLoggedIn={setIsLoggedIn}  setIsRegistered={setIsRegistered} />
       ) : isLoggedIn ? (
-        <Login setIsLoggedIn={setIsLoggedIn} />
+        <Login setIsLoggedIn={setIsLoggedIn} setIsHome={setIsHome} />
       ) : isRegistered ? (
-        <Register setIsRegistered={setIsRegistered} />
+        <Register setIsRegistered={setIsRegistered} setIsHome={setIsHome} />
       ) : isUpdating ? (
         <UpdateRecipe
           props={singleViewRecipe}
@@ -93,6 +93,7 @@ export const App = () => {
             recipes={recipes}
             handleClick={fetchSingleRecipe}
             setIsAddingRecipe={setIsAddingRecipe}
+            setIsHome={setIsHome}
           />
         </div>
       )}

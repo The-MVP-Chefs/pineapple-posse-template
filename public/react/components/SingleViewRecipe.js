@@ -31,17 +31,18 @@ export const SingleViewRecipe = ({props,setSingleViewRecipe, isDeleted, setIsDel
           </Card.Body>
            <ListGroup className="list-group-flush">
             <ListGroup.Item>{props.isVegan}</ListGroup.Item>
-            <ListGroup.Item>User Id{props.userId}</ListGroup.Item>
+            {/* <ListGroup.Item>User Id{props.userId}</ListGroup.Item> */}
           </ListGroup>
           <Card.Body>
             <Button onClick={handleDelete} variant="danger">
                Delete
              </Button>
              <br></br>
+             <br></br>
              <Button variant="success" onClick={()=>setIsUpdating(true)}>Update</Button>
            </Card.Body>
          </Card>
-
+         <br></br>
            <Button variant="primary" onClick={() => setSingleViewRecipe(null)}>
              Back to All Items
            </Button>
