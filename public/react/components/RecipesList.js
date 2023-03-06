@@ -8,7 +8,8 @@ import Button from "react-bootstrap/Button";
 
 export const RecipesList = ({recipes, handleClick,setIsAddingRecipe, setIsHome}) => {
 	return <>
-		<Button variant="primary" type="submit" onClick={() => setIsAddingRecipe(true) }>
+	<span class="button">
+		<Button variant="success" type="submit" onClick={() => setIsAddingRecipe(true) }>
           Add a New Recipe
         </Button>
 		<br></br>
@@ -16,7 +17,7 @@ export const RecipesList = ({recipes, handleClick,setIsAddingRecipe, setIsHome})
 		<Button variant="primary" type="submit" onClick={() => setIsHome(true) }>
           Return Home
         </Button>
-		
+		</span>
 		
 		{
 			recipes.map((recipe, idx) => {

@@ -32321,7 +32321,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //bootstrap
 var Recipe = function Recipe(props) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "d-flex justify-content-center "
+    className: "test "
   }, /*#__PURE__*/_react.default.createElement(_Card.default, {
     style: {
       width: "18rem"
@@ -32362,8 +32362,10 @@ var RecipesList = function RecipesList(_ref) {
       handleClick = _ref.handleClick,
       setIsAddingRecipe = _ref.setIsAddingRecipe,
       setIsHome = _ref.setIsHome;
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Button.default, {
-    variant: "primary",
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("span", {
+    class: "button"
+  }, /*#__PURE__*/_react.default.createElement(_Button.default, {
+    variant: "success",
     type: "submit",
     onClick: function onClick() {
       return setIsAddingRecipe(true);
@@ -32374,7 +32376,7 @@ var RecipesList = function RecipesList(_ref) {
     onClick: function onClick() {
       return setIsHome(true);
     }
-  }, "Return Home"), recipes.map(function (recipe, idx) {
+  }, "Return Home")), recipes.map(function (recipe, idx) {
     return /*#__PURE__*/_react.default.createElement(_Recipe.Recipe, {
       recipe: recipe,
       key: idx,
@@ -36246,9 +36248,15 @@ var Home = function Home(_ref) {
     window.location.reload(false);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Welcome to the Recipe Shop"), /*#__PURE__*/_react.default.createElement("img", {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
+    class: "title"
+  }, "Welcome to the Recipe Shop"), /*#__PURE__*/_react.default.createElement("div", {
+    class: "homeImage"
+  }, /*#__PURE__*/_react.default.createElement("img", {
     src: "https://64.media.tumblr.com/247e7fcb54fb8ffde594fc428b047a97/3cfa81015891537b-61/s400x600/a7914e7fd605022b6deb3c60d8a4c5c400dbeeae.jpg"
-  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
+  })), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("span", {
+    class: "button"
+  }, /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "success",
     type: "submit",
     onClick: function onClick(ev) {
@@ -36266,7 +36274,7 @@ var Home = function Home(_ref) {
     onClick: function onClick() {
       return setIsRegistered(true) && setIsHome(false);
     }
-  }, "Register Account"));
+  }, "Register Account")));
 };
 
 exports.Home = Home;
@@ -36374,7 +36382,9 @@ var Login = function Login(_ref) {
     window.location.reload(false);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Login"), /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
+    class: "title"
+  }, "Login"), /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
     className: "mb-3",
     controlId: "formBasicPassword"
   }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
@@ -36384,26 +36394,28 @@ var Login = function Login(_ref) {
     value: user_name,
     type: "text",
     placeholder: "Username"
-  }), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+  }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
       return setPassword(e.target.value);
     },
     value: password,
     type: "text",
     placeholder: "Enter Password"
-  }), " "), /*#__PURE__*/_react.default.createElement(_Button.default, {
-    variant: "primary",
-    type: "submit",
-    onClick: function onClick() {
-      return setIsHome(true);
-    }
-  }, "Cancel"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
+  }), " "), /*#__PURE__*/_react.default.createElement("span", {
+    class: "button"
+  }, /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "primary",
     type: "submit",
     onClick: function onClick(ev) {
       return handleLogin(ev);
     }
-  }, "Login")));
+  }, "Login"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    variant: "danger",
+    type: "submit",
+    onClick: function onClick() {
+      return setIsHome(true);
+    }
+  }, "Cancel"))));
 };
 
 exports.Login = Login;
@@ -36527,49 +36539,59 @@ var Register = function Register(_ref) {
     window.location.reload(false);
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Registration"), /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
+    class: "title"
+  }, "Registration"), /*#__PURE__*/_react.default.createElement(_Form.default, null, /*#__PURE__*/_react.default.createElement(_Form.default.Group, {
     className: "mb-3",
     controlId: "formBasicPassword"
-  }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Recipe Name"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+  }, /*#__PURE__*/_react.default.createElement(_Form.default.Label, null), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
       return setUserName(e.target.value);
     },
     value: user_name,
     type: "text",
     placeholder: "User Name"
-  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Password"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
       return setPassword(e.target.value);
     },
     value: password,
     type: "text",
     placeholder: "Enter Password"
-  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Chef Status"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
       return setIsChef(e.target.value);
     },
     value: isChef,
     type: "text",
     placeholder: "Are you a professional chef?"
-  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Dietary Restrictions"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
       return setDietaryRestrictions(e.target.value);
     },
     value: dietary_restrictions,
     type: "text",
     placeholder: "Any Dietary Restrictions?"
-  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null, "Profile Picture"), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
+  }), /*#__PURE__*/_react.default.createElement(_Form.default.Label, null), /*#__PURE__*/_react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
       return setUserImage(e.target.value);
     },
     value: userImage,
     type: "text",
-    placeholder: ""
-  })), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    placeholder: "Profile Picture"
+  })), /*#__PURE__*/_react.default.createElement("span", {
+    class: "button"
+  }, /*#__PURE__*/_react.default.createElement(_Button.default, {
     variant: "primary",
     type: "submit",
     onClick: handleSubmit
-  }, "Register")));
+  }, "Register"), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    variant: "danger",
+    type: "submit",
+    onClick: function onClick() {
+      return setIsHome(true);
+    }
+  }, "Cancel"))));
 };
 
 exports.Register = Register;
@@ -36890,7 +36912,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54457" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52590" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

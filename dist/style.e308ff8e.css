@@ -1,15 +1,30 @@
 * {
-  margin: 50px;
-  box-sizing: border-box;
-  /* background-color: rgb(223, 223, 223); */
-}
-h1{
+  margin: 0px;
  
+}
+.title{
   text-align: center;
- 
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
+
+.homeImage{
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.test{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+
+}
+
 /* 
 
 

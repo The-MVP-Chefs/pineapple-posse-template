@@ -14,7 +14,7 @@ export const Recipe = (props) => {
  
   return (
     <>
-      <div className="d-flex justify-content-center ">
+      <div className="test "> 
         <Card style={{ width: "18rem" }}>
           <Card.Img variant="top" src={props.recipe.recipeImage} />
           <Card.Body>

@@ -38,35 +38,35 @@ async function handleSubmit(ev) {
   }
     
     return  ( <>
-    <h1>Registration</h1>
+    <h1 class="title">Registration</h1>
     <Form>
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Recipe Name</Form.Label>
+        <Form.Label></Form.Label>
         <Form.Control onChange={(e) => setUserName(e.target.value)} value={user_name} type="text" placeholder="User Name" />
 
-
-        <Form.Label>Password</Form.Label>
+        <Form.Label></Form.Label>
         <Form.Control onChange={(e) => setPassword(e.target.value)} value={password} type="text" placeholder="Enter Password" />
      
-
-      
-        <Form.Label>Chef Status</Form.Label>
+        <Form.Label></Form.Label>
         <Form.Control onChange={(e) => setIsChef(e.target.value)} value={isChef} type="text" placeholder="Are you a professional chef?" />
      
-      
-    
-        <Form.Label>Dietary Restrictions</Form.Label>
+        <Form.Label></Form.Label>
         <Form.Control onChange={(e) => setDietaryRestrictions(e.target.value)} value={dietary_restrictions} type="text" placeholder="Any Dietary Restrictions?" />
       
+        <Form.Label></Form.Label>
+        <Form.Control onChange={(e) => setUserImage(e.target.value)} value={userImage} type="text" placeholder="Profile Picture" />
 
-      
-        <Form.Label>Profile Picture</Form.Label>
-        <Form.Control onChange={(e) => setUserImage(e.target.value)} value={userImage} type="text" placeholder="" />
-        
       </Form.Group>
+      <span class="button">
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Register
       </Button>
+      <br></br>
+      <br></br>
+      <Button variant="danger" type="submit" onClick={() => setIsHome(true)}>
+          Cancel
+        </Button>
+        </span>
     </Form>
     </>
     );

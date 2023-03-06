@@ -1,4 +1,5 @@
 const {users, recipes} = require('./seedData.js');
+const bcrypt = require("bcrypt");
 
 const {sequelize} = require('./db');
 const {User, Recipe} = require('./models');

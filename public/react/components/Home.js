@@ -28,11 +28,12 @@ export const Home = ({ setIsHome, setRecipes,setIsLoggedIn, setIsRegistered }) =
 
   return (
     <>
-    <h1>Welcome to the Recipe Shop</h1>
-      <img src="https://64.media.tumblr.com/247e7fcb54fb8ffde594fc428b047a97/3cfa81015891537b-61/s400x600/a7914e7fd605022b6deb3c60d8a4c5c400dbeeae.jpg" />
-
+    <h1 class="title">Welcome to the Recipe Shop</h1>
+      <div class="homeImage">
+        <img  src="https://64.media.tumblr.com/247e7fcb54fb8ffde594fc428b047a97/3cfa81015891537b-61/s400x600/a7914e7fd605022b6deb3c60d8a4c5c400dbeeae.jpg" />
+      </div>
       <br></br>
-
+<span class="button">
       <Button
         variant="success"
         type="submit"
@@ -59,6 +60,7 @@ export const Home = ({ setIsHome, setRecipes,setIsLoggedIn, setIsRegistered }) =
       >
         Register Account
       </Button>
+      </span>
     </>
   );
 };

@@ -31,7 +31,7 @@ export const Login = ({ setIsLoggedIn, setIsHome }) => {
 
   return (
     <>
-      <h1>Login</h1>
+      <h1 class="title">Login</h1>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label></Form.Label>
@@ -41,6 +41,7 @@ export const Login = ({ setIsLoggedIn, setIsHome }) => {
             type="text"
             placeholder="Username"
           />
+          <br></br>
           <Form.Control
             onChange={(e) => setPassword(e.target.value)}
             value={password}
@@ -48,12 +49,7 @@ export const Login = ({ setIsLoggedIn, setIsHome }) => {
             placeholder="Enter Password"
           />{" "}
         </Form.Group>
-
-        <Button variant="primary" type="submit" onClick={() => setIsHome(true)}>
-          Cancel
-        </Button>
-        <br></br>
-        <br></br>
+        <span class="button">
         <Button
           variant="primary"
           type="submit"
@@ -61,6 +57,12 @@ export const Login = ({ setIsLoggedIn, setIsHome }) => {
         >
           Login
         </Button>
+        <br></br>
+        <br></br>
+        <Button variant="danger" type="submit" onClick={() => setIsHome(true)}>
+          Cancel
+        </Button>
+        </span>
       </Form>
     </>
   );

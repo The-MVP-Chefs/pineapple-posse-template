@@ -66,6 +66,9 @@ const Recipe = sequelize.define("recipe", {
   }
 });
 
+//One-To-Many Relationship
+User.hasMany(Recipe, { as: "recipes", foreignKey: "userId" });
+
 module.exports = {
   db: sequelize,
   User,
