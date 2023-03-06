@@ -13,6 +13,28 @@ const { User } = require("../models");
 //   }
 // });
 
+const authUser = async (req, res, next) => {
+  const auth = req.header("Authorization");
+  console.log("Auth: ", auth);
+
+  if (!auth) {
+    console.log("The user isn't authorized...");
+    next(); // move on to the next function
+  } else {
+    // Array Deconstruction, we don't need the Bearer part, only need token
+    const [, token] = auth.split(" "); // spliting the authentication string by space
+    console.log("Token: ", token);
+    if (token == null) return res.sendStatus(401);
+
+    // Check the validity of the token
+    jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
+      if (err) return res.sendStatus(403);
+      req.user = user;
+      next();
+    });
+  }
+};
+
 
 
 //register a new user
@@ -51,7 +73,7 @@ router.post("/register", async (req, res, next) => {
 });
 
 //login a user and check that their info matches database
-app.post("/login", authUser, async (req, res, next) => {
+router.post("/login", authUser, async (req, res, next) => {
   try {
     let { user_name, password } = req.body;
     let loginUser = await User.findOne({
@@ -81,7 +103,7 @@ app.post("/login", authUser, async (req, res, next) => {
 
 //  checks if someone is a chef
 //write logic to check if a person is logged in or not. 
-app.post("/users", authUser, async (req, res, next) => {
+router.post("/users", authUser, async (req, res, next) => {
   const { isUser } = req.body;
   if (!isChef) {
     res.send({ message: "Not authorized, please login or register" });
