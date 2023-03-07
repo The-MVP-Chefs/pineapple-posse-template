@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-export const Login = ({ setIsLoggedIn, setIsHome }) => {
+export const Login = ({ setIsLoggedIn, setIsHome ,setSingleViewUser }) => {
   console.log("login");
   //make the form
   const [user_name, setUserName] = useState("");
@@ -23,11 +23,12 @@ export const Login = ({ setIsLoggedIn, setIsHome }) => {
     });
     const data = await response.json();
     setIsLoggedIn(null);
+    setSingleViewUser(true)
     refreshPage();
   }
-  function refreshPage() {
-    window.location.reload(false);
-  }
+  // function refreshPage() {
+  //   window.location.reload(false);
+  // }
 
   return (
     <>

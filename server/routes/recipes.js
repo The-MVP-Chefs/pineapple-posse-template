@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcrypt");
+
 
 const { Recipe } = require("../models");
 
@@ -59,6 +59,22 @@ router.delete("/:id", async (req, res, next) => {
 });
 
 //PUT /recipes/:id
+// router.put("/:id", async (req, res, next) => {
+//   router.use(express.json());
+//   try {
+//     const [updatedRecipe, updatedRecipes] = await Recipe.update(req.body, {
+//       where: {
+//         id: req.params.id
+//       },
+//       returning: true
+//     });
+//     res.send(updatedRecipes[1]);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+//PUT /items/:id
 router.put("/:id", async (req, res, next) => {
   router.use(express.json());
   try {
@@ -68,7 +84,7 @@ router.put("/:id", async (req, res, next) => {
       },
       returning: true
     });
-    res.send(updatedRecipes[0]);
+   res.send(updatedRecipes[0]);
   } catch (error) {
     next(error);
   }

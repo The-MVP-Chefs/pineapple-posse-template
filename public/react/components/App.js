@@ -17,6 +17,7 @@ export const App = () => {
   const [isHome, setIsHome] = useState(true);
   const [recipes, setRecipes] = useState([]);
   const [singleViewRecipe, setSingleViewRecipe] = useState(null);
+  const [singleViewUser, setSingleViewUser] = useState(null);
   const [isAddingRecipe, setIsAddingRecipe] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
@@ -55,19 +56,33 @@ export const App = () => {
     }
   }
 
-//   useEffect(() => {
-//     fetchRecipes();
-//   }, []);
+
+  async function fetchSingleUser(id) {
+    try {
+      const response = await fetch(`${apiURL}/users/${id}`);
+      const user = await response.json();
+      setSingleViewUser(user);
+    } catch (err) {
+      console.log("Oh no an error! ", err);
+    }
+  }
+
+
 
   return (
     <main>
       
       {isHome ? (
 // left is prop right is function}
-        <Home setIsHome={setIsHome} setRecipes={setRecipes} setIsLoggedIn={setIsLoggedIn}  setIsRegistered={setIsRegistered} />
+        <Home setIsHome={setIsHome} setRecipes={setRecipes} setIsLoggedIn={setIsLoggedIn}  setSingleViewUser={setSingleViewUser} setIsRegistered={setIsRegistered} />
       ) : isLoggedIn ? (
         <Login setIsLoggedIn={setIsLoggedIn} setIsHome={setIsHome} />
-      ) : isRegistered ? (
+      ) : singleViewUser ? (
+        <SingleViewUser
+          props={singleViewUser}
+          setSingleViewUser={setSingleViewUser}
+          handleClick={fetchSingleUser}
+        />): isRegistered ? (
         <Register setIsRegistered={setIsRegistered} setIsHome={setIsHome} />
       ) : isUpdating ? (
         <UpdateRecipe
@@ -82,10 +97,7 @@ export const App = () => {
         <SingleViewRecipe
           props={singleViewRecipe}
           setSingleViewRecipe={setSingleViewRecipe}
-          isDeleted={isDeleted}
-          setIsDeleted={setIsDeleted}
-          isUpdating={isUpdating}
-          setIsUpdating={setIsUpdating}
+          handleClick={fetchSingleRecipe}
         />
       ) : (
         <div id="recipes">

@@ -12,4 +12,5 @@ As a user of the inventory app, you can:
 1. `npm install`
 2. `npm run seed`
 3. `npm run server-dev`
-4. In a seperate terminal, ``
+4. `npm run client-dev`
+5. In a seperate terminal, ``

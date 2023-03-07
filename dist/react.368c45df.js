@@ -30344,7 +30344,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var User = function User(props) {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h3", null, props.user.name), /*#__PURE__*/_react.default.createElement("img", {
-    src: props.user.recipeImage,
+    src: props.user.user_image,
     alt: props.user.name
   }));
 };
@@ -36320,7 +36320,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Login = function Login(_ref) {
   var setIsLoggedIn = _ref.setIsLoggedIn,
-      setIsHome = _ref.setIsHome;
+      setIsHome = _ref.setIsHome,
+      setSingleViewUser = _ref.setSingleViewUser;
   console.log("login"); //make the form
 
   var _useState = (0, _react.useState)(""),
@@ -36335,7 +36336,10 @@ var Login = function Login(_ref) {
 
   function handleLogin(_x) {
     return _handleLogin.apply(this, arguments);
-  }
+  } // function refreshPage() {
+  //   window.location.reload(false);
+  // }
+
 
   function _handleLogin() {
     _handleLogin = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(ev) {
@@ -36366,9 +36370,10 @@ var Login = function Login(_ref) {
             case 6:
               data = _context.sent;
               setIsLoggedIn(null);
+              setSingleViewUser(true);
               refreshPage();
 
-            case 9:
+            case 10:
             case "end":
               return _context.stop();
           }
@@ -36376,10 +36381,6 @@ var Login = function Login(_ref) {
       }, _callee);
     }));
     return _handleLogin.apply(this, arguments);
-  }
-
-  function refreshPage() {
-    window.location.reload(false);
   }
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", {
@@ -36670,30 +36671,35 @@ var App = function App() {
       singleViewRecipe = _useState8[0],
       setSingleViewRecipe = _useState8[1];
 
-  var _useState9 = (0, _react.useState)(false),
+  var _useState9 = (0, _react.useState)(null),
       _useState10 = _slicedToArray(_useState9, 2),
-      isAddingRecipe = _useState10[0],
-      setIsAddingRecipe = _useState10[1];
+      singleViewUser = _useState10[0],
+      setSingleViewUser = _useState10[1];
 
   var _useState11 = (0, _react.useState)(false),
       _useState12 = _slicedToArray(_useState11, 2),
-      isDeleted = _useState12[0],
-      setIsDeleted = _useState12[1];
+      isAddingRecipe = _useState12[0],
+      setIsAddingRecipe = _useState12[1];
 
   var _useState13 = (0, _react.useState)(false),
       _useState14 = _slicedToArray(_useState13, 2),
-      isUpdating = _useState14[0],
-      setIsUpdating = _useState14[1];
+      isDeleted = _useState14[0],
+      setIsDeleted = _useState14[1];
 
   var _useState15 = (0, _react.useState)(false),
       _useState16 = _slicedToArray(_useState15, 2),
-      isLoggedIn = _useState16[0],
-      setIsLoggedIn = _useState16[1];
+      isUpdating = _useState16[0],
+      setIsUpdating = _useState16[1];
 
   var _useState17 = (0, _react.useState)(false),
       _useState18 = _slicedToArray(_useState17, 2),
-      isRegistered = _useState18[0],
-      setIsRegistered = _useState18[1];
+      isLoggedIn = _useState18[0],
+      setIsLoggedIn = _useState18[1];
+
+  var _useState19 = (0, _react.useState)(false),
+      _useState20 = _slicedToArray(_useState19, 2),
+      isRegistered = _useState20[0],
+      setIsRegistered = _useState20[1];
 
   function fetchUsers() {
     return _fetchUsers.apply(this, arguments);
@@ -36779,10 +36785,7 @@ var App = function App() {
 
   function fetchSingleRecipe(_x) {
     return _fetchSingleRecipe.apply(this, arguments);
-  } //   useEffect(() => {
-  //     fetchRecipes();
-  //   }, []);
-
+  }
 
   function _fetchSingleRecipe() {
     _fetchSingleRecipe = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(id) {
@@ -36821,6 +36824,47 @@ var App = function App() {
     return _fetchSingleRecipe.apply(this, arguments);
   }
 
+  function fetchSingleUser(_x2) {
+    return _fetchSingleUser.apply(this, arguments);
+  }
+
+  function _fetchSingleUser() {
+    _fetchSingleUser = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(id) {
+      var response, user;
+      return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return fetch("".concat(_api.default, "/users/").concat(id));
+
+            case 3:
+              response = _context4.sent;
+              _context4.next = 6;
+              return response.json();
+
+            case 6:
+              user = _context4.sent;
+              setSingleViewUser(user);
+              _context4.next = 13;
+              break;
+
+            case 10:
+              _context4.prev = 10;
+              _context4.t0 = _context4["catch"](0);
+              console.log("Oh no an error! ", _context4.t0);
+
+            case 13:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4, null, [[0, 10]]);
+    }));
+    return _fetchSingleUser.apply(this, arguments);
+  }
+
   return /*#__PURE__*/_react.default.createElement("main", null, isHome ?
   /*#__PURE__*/
   // left is prop right is function}
@@ -36828,10 +36872,15 @@ var App = function App() {
     setIsHome: setIsHome,
     setRecipes: setRecipes,
     setIsLoggedIn: setIsLoggedIn,
+    setSingleViewUser: setSingleViewUser,
     setIsRegistered: setIsRegistered
   }) : isLoggedIn ? /*#__PURE__*/_react.default.createElement(_Login.Login, {
     setIsLoggedIn: setIsLoggedIn,
     setIsHome: setIsHome
+  }) : singleViewUser ? /*#__PURE__*/_react.default.createElement(SingleViewUser, {
+    props: singleViewUser,
+    setSingleViewUser: setSingleViewUser,
+    handleClick: fetchSingleUser
   }) : isRegistered ? /*#__PURE__*/_react.default.createElement(_Register.Register, {
     setIsRegistered: setIsRegistered,
     setIsHome: setIsHome
@@ -36845,10 +36894,7 @@ var App = function App() {
   }) : singleViewRecipe ? /*#__PURE__*/_react.default.createElement(_SingleViewRecipe.SingleViewRecipe, {
     props: singleViewRecipe,
     setSingleViewRecipe: setSingleViewRecipe,
-    isDeleted: isDeleted,
-    setIsDeleted: setIsDeleted,
-    isUpdating: isUpdating,
-    setIsUpdating: setIsUpdating
+    handleClick: fetchSingleRecipe
   }) : /*#__PURE__*/_react.default.createElement("div", {
     id: "recipes"
   }, /*#__PURE__*/_react.default.createElement(_RecipesList.RecipesList, {
@@ -36912,7 +36958,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63677" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53581" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

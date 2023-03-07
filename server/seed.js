@@ -17,11 +17,11 @@ let seed = async () => {
     await Promise.all(users.map(user => User.create(user)));
     await Promise.all(recipes.map(recipe => Recipe.create(recipe)));
   
-    let firstRecipe = await recipeEntries[0];
-    let secondUser = await userEntries[1];
+    // let firstRecipe = await recipeEntries[0];
+    // let secondUser = await userEntries[1];
   
-    console.log("Test 1: ", firstRecipe);
-    console.log("Test 2: ", secondUser);
+    // console.log("Test 1: ", firstRecipe);
+    // console.log("Test 2: ", secondUser);
   
     console.log("The database is populated... Test it out using a Local Server!");
   };
